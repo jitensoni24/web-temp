@@ -6,7 +6,7 @@
 	<artifactId>web-temp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -44,7 +44,7 @@
 	</properties>
 
 	<dependencies>
-	
+
 		<!-- Web -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

@@ -10,7 +10,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.aspectj.lang.annotation.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -23,6 +22,7 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -36,7 +36,7 @@ public class TestHomeController {
 	
 	private MockMvc mockMvc;
 	
-	@Before(value = "before")
+	@org.junit.Before
 	public void setUp() throws Exception {
 		mockMvc = MockMvcBuilders.standaloneSetup(homeController).build();
 	}
@@ -67,9 +67,12 @@ public class TestHomeController {
 		/*System.out.println(IOUtils.toString(resource.getInputStream(), StandardCharsets.UTF_8));*/
 		when(context.getResource("classpath:sample.json")).thenReturn(resource);
 		
+		System.out.println(mockMvc);
 		
 		//When
-		ResultActions perform = mockMvc.perform(get("/json"));
+		MockHttpServletRequestBuilder requestBuilder = get("/json");
+		
+		ResultActions perform = mockMvc.perform(requestBuilder);
 		
 		
 		//Then
