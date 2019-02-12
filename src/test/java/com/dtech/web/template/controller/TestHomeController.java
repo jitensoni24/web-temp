@@ -36,6 +36,7 @@ public class TestHomeController {
 	
 	private MockMvc mockMvc;
 	
+//comment
 	@org.junit.Before
 	public void setUp() throws Exception {
 		mockMvc = MockMvcBuilders.standaloneSetup(homeController).build();
