@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration
-@ComponentScan(basePackages = "com.bskyb.web.template")
+@ComponentScan(basePackages = "com.dtech.web.template")
 public class ApplicationConfig {
 
 	@Bean
