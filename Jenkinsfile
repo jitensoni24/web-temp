@@ -14,7 +14,7 @@ pipeline {
 				echo "Building war file with maven..."
 			
 				//bat for windows to execute script files else use sh'''
-				bat 'mvn clean install checkstyle:checkstyle'
+				bat 'mvn clean package'
 			}
 			post {
 				success {
