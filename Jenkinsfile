@@ -20,7 +20,7 @@ pipeline {
 				success {
 					echo 'now archiveing war file'
 
-					archiveArtificats artificats: "**/*.war"
+					archiveArtifacts artificats: "**/*.war"
 				}
 
 			}
