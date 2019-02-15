@@ -3,18 +3,35 @@ pipeline {
 	
 	stages {
 		
-		stage('Deploy to Local') {
+		stage('Initial test message') {
 			steps {
-				/*
-				//shell script will not work in jenkins running on windows
-				sh '''
-				echo "PATH=${PATH}"
-				echo "M2_HOME=${M2_HOME}"
-				'''
-				*/
-				echo "%PATH%"
+				echo "checking stage: hello world: jenkins pipeline"
 			}
 		}
+
+		stage('Package war file') {
+			steps {
+				echo "Building war file with maven..."
+			
+				//bat for windows to execute script files else use sh'''
+				bat 'mvn clean install checkstyle:checkstyle'
+			}
+			post {
+				success {
+					echo 'now archiveing war file'
+
+					archiveArtificats artificats: "**/*.war"
+				}
+
+			}
+		}
+
+		stage('Deploy to Local') {
+			steps {
+				echo "hello world, prod deploy"
+			}
+		}
+
 		
 		stage('Deploy to Prod') {
 			steps {
