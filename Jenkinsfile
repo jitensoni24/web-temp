@@ -39,7 +39,7 @@ pipeline {
 					input message: 'approved?'
 				}
 				
-				build job: 'deploy-local'
+				build job: 'deploy-prod'
 			}
 			
 			post{
