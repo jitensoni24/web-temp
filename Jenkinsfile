@@ -35,7 +35,7 @@ pipeline {
 		stage('Deploy to Prod') {
 			steps {
 				
-				timeout(time: 5, unit: days){
+				timeout(time: 5, unit: 'Days'){
 					input message: 'approved?'
 				}
 				
