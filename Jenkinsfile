@@ -28,15 +28,8 @@ pipeline {
 
 		stage('Deploy to Local') {
 			steps {
-				echo "hello world, prod deploy"
+				build job: 'deploy-local'
 			}
-		}
-
-		
-		stage('Deploy to Prod') {
-			steps {
-				echo "hello world, prod deploy"
-			}
-		}
+		}		
 	}
 }
