@@ -30,6 +30,23 @@ pipeline {
 			steps {
 				build job: 'deploy-local'
 			}
-		}		
+		}
+
+		stage('Deploy to Prod') {
+			steps {
+				
+				timeout(time: 5, unit: days){
+					input message: 'approved?'
+				}
+				
+				build job: 'deploy-local'
+			}
+			
+			post{
+				success{
+					echo 'deployed in prod successfully'
+				}
+			}
+		}
 	}
 }
